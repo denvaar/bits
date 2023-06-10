@@ -127,8 +127,6 @@ int main(void) {
   uint32_t chunk_rank = 0u;
   uint32_t subchunk_rank = 0u;
 
-  printf("%u\n", r2_bits / r2_element_width);
-
   for (int i = 0; i < n; i++) {
     uint32_t current_chunk = ceil(i / r1_chunk_size);
     uint32_t current_subchunk = ceil(i / r2_chunk_size);
@@ -140,7 +138,6 @@ int main(void) {
 
     if (i % r2_chunk_size == 0) {
       write_value(r2, r2_element_width, current_subchunk, subchunk_rank);
-      printf("%u,", current_subchunk);
     }
 
     chunk_rank += get_bit(b, i);
